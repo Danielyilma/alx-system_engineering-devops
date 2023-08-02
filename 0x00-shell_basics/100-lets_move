@@ -1,2 +1,2 @@
 #!/bin/bash
-mc [:uppercase:]* /tmp/u
+mc [[:uppercase:]]* /tmp/u
