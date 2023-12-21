@@ -8,10 +8,10 @@ do
 	   echo bad luck from China
 	   ;;
 	   9)
-	   echo bad luck from japan
+	   echo bad luck from Japan
 	   ;;
  	   17)
-	   echo bad luck from italy
+	   echo bad luck from Italy
 	   ;;
 	   *)
 	   echo $var
