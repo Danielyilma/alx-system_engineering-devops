@@ -3,6 +3,7 @@
 var=1
 while [ $var -le 20 ]
 do
+	echo $var
 	case $var in
 	   4)
 	   echo bad luck from China
@@ -14,6 +15,5 @@ do
 	   echo bad luck from Italy
 	   ;;
 	 esac
-	 echo $var
 	 var=$(( var + 1 ))
 done
