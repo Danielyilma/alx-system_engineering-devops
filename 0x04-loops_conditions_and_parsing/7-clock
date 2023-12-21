@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# displaying 12 hours and minutes
+hour=0
+minutes=60
+while [ $hour -le 12 ]
+do
+	if [ $minutes -eq 60 ]
+	then
+		echo Hour: $hour
+		minutes=0
+		hour=$(( hour + 1 ))
+	else
+		echo $minutes
+	fi
+	minutes=$(( minutes + 1 ))
+done

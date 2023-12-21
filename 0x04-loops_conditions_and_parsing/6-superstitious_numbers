@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 20 times and hi in 9th
+var=1
+while [ $var -le 20 ]
+do
+	case $var in
+	   4)
+	   echo bad luck from China
+	   ;;
+	   9)
+	   echo bad luck from japan
+	   ;;
+ 	   17)
+	   echo bad luck from italy
+	   ;;
+	   *)
+	   echo $var
+	   ;;
+	 esac
+	 var=$(( var + 1 ))
+done

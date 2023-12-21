@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times and hi in 9th
+var=1
+while [ $var -le 10 ]
+do
+   echo Best School
+   if [ $var -eq 9 ]
+   then
+      echo hi
+   fi
+   var=$(( var + 1 ))
+done
