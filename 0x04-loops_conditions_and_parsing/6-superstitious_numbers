@@ -13,9 +13,7 @@ do
  	   17)
 	   echo bad luck from Italy
 	   ;;
-	   *)
-	   echo $var
-	   ;;
 	 esac
+	 echo $var
 	 var=$(( var + 1 ))
 done
