@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script is displaying "Best School" 10 times
+var=1
+until [ $var -eq 11 ]
+do
+   echo Best School
+   var=$(( var+=1 ))
+done
