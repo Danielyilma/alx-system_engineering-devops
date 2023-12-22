@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 # killing a process
 id=$(pgrep -f 4-to_infinity_and_beyond)
 
