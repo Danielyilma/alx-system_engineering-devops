@@ -2,7 +2,7 @@
 # displaying 12 hours and minutes
 hour=0
 minutes=0
-echo Hours: $hour
+echo Hour: $hour
 while [ $hour -lt 13 ]
 do
 	if [ $minutes -eq 59 ]
