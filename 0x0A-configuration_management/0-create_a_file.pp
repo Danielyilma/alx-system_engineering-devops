@@ -1,3 +1,4 @@
+#creating a file with specific permission and owners
 file { '/tmp/school':
     ensure  => present,
     mode    => '0744',
