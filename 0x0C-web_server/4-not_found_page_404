@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
-# Configure your Nginx server to have a custom 404 page that contains the
-# string Ceci n'est pas une page
-sudo apt-get update -y
-sudo apt-get install -y nginx
+# redirects to other location
 
-echo "Hello World!" | sudo tee /var/www/html/index.html
-sudo sed -i "/listen 80 default_server;/a rewrite ^/redirect_me https://twitter.com/jossvega103 permanent;" /etc/nginx/sites-enabled/default
+apt install nginx -y
+mkdir -p /var/www/
+echo "Hello World!" > /var/www/html/index.html
+string_to_replace="location /redirect_me {\n           return 301 https://www.youtube.com;\n        }"
+
+sed -i "s#server_name _;#$string_to_replace#" /etc/nginx/sites-available/default
 
 echo "Ceci n'est pas une page" > /usr/share/nginx/html/page_error_404.html
-sudo sed -i '37i error_page 404 /page_error_404.html;\nlocation = /page_error_404.html {\nroot /usr/share/nginx/html; \ninternal;\n}\n' /etc/nginx/sites-enabled/default
+sed -i '37i error_page 404 /page_error_404.html;\nlocation = /page_error_404.html {\nroot /usr/share/nginx/html; \ninternal;\n}\n' /etc/nginx/sites-enabled/default
 
-sudo service nginx restart
+service nginx restart
