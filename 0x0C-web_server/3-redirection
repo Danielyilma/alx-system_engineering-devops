@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # redirects to other location
 
+apt install nginx -y
+mkdir -p /var/www/
+echo "Hello World!" > /var/www/html/index.html
 string_to_replace="location /redirect_me {\n           return 301 https://www.youtube.com;\n        }"
 
 sed -i "s#server_name _;#$string_to_replace#" /etc/nginx/sites-available/default
+nginx
