@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# redirects to other location
+
+apt install nginx -y
+
+string_to_replace="return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4"
+
+sed -i "s#listen 80 default_server;#$string_to_replace#" /etc/nginx/sites-available/default
