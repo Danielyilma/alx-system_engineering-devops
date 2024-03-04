@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 # redirects to other location
 
-apt install nginx -y
-mkdir -p /var/www/
-echo "Hello World!" > /var/www/html/index.html
+
 string_to_replace="location /redirect_me {\n           return 301 https://www.youtube.com;\n        }"
+string_to_replace2="error_page 404 /page_error_404.html;\n   location /page_error_404 {\n           return 301 https://www.youtube.com;\n        }"
 
 sed -i "s#server_name _;#$string_to_replace#" /etc/nginx/sites-available/default
 
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/page_error_404.html
-sed -i '37i error_page 404 /page_error_404.html;\nlocation = /page_error_404.html {\nroot /usr/share/nginx/html; \ninternal;\n}\n' /etc/nginx/sites-enabled/default
-
+echo "Ceci n'est pas une page" > /var/www/html/page_error_404.html
+sed "sz# concurs with nginx's onez$string_to_replace2z /etc/nginx/sites-enabled/default
 service nginx restart
