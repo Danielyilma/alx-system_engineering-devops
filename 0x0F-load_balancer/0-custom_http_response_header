@@ -6,4 +6,4 @@ sudo apt install nginx -y
 sudo mkdir -p /var/www/
 sudo echo "Hello World!" > /var/www/html/index.html
 sudo sed  -i "\|root /var/www/html;|a\\\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-enabled/default
-sudo nginx -s reload
+sudo service nginx restart
