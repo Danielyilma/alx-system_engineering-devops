@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# configuring a new server
+
+sed -i "\|root /var/www/html;|a\\tadd_header X-Served-By $hostname;" /etc/nginx/sites-enabled/default
+nginx -s reload
