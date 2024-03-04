@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# installing and configuring haproxy
+
+sudo apt-get update -y
+sudo apt install haproxy -y
+touch /etc/init.d/webconfig.cfg
+chmod +x /etc/init.d/webconfig.cfg
+printf "frontend http\n\tbind *:80\n\tmode http\n\ttimeout client 60s\n\tdefault_backend webservers\nbackend webservers\n\ttimeout connect 20s\n\ttimeout server 100s\n\tmode http\n\tserver 55696-web-01 54.237.124.13:80 check\n\tserver 55696-web-02 34.207.120.149:80 check\n" > /etc/init.d/webconfig.cfg
+haproxy -f /etc/init.d/webconfig.cfg
