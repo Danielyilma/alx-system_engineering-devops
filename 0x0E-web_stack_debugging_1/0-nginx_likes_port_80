@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# debuging
+
+serivice nginx start
