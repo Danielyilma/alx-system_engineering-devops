@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 # debuging
 
-printf "server {
-    listen 80;
-    root /var/www/html;
-    
-    index index.html index.htm;
-}
-" > /etc/nginx/sites-available/default
+sudo apt update -y
+sudo apt install nginx -y
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
