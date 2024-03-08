@@ -34,8 +34,12 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 frontend http
         bind *:80
+        http-request redirect scheme https code 301 if !{ ssl_fc }
+        mode http
+        timeout client 60s
+        default_backend webservers
+frontend http2
         bind *:443 ssl crt /etc/haproxy/httpscrt.pem
-        redirect scheme https code 301 if !{ ssl_fc }
         mode http
         timeout client 60s
         default_backend webservers
