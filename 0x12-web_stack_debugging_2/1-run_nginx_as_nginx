@@ -11,8 +11,8 @@ printf '%s' "server {
         location / {
             try_files \$uri \$uri/ =404;
         }
-}" > /etc/nginx/sites-available
-chown nginx:nginx  /etc/nginx/nginx.conf
+}" > /etc/nginx/sites-available/default
+chown nginx:nginx /etc/nginx/nginx.conf
 chmod 644 /etc/nginx/nginx.conf
 sed -i '1i\user nginx;' /etc/nginx/nginx.conf
 sudo -u nginx service nginx start
