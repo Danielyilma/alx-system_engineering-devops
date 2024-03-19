@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# running whoami on current user loged in
+
+if [ $# -eq 0 ]
+then
+    echo 'usage ./0-iamsomeoneelse username'
+fi
+
+su -c 'whoami' $1
