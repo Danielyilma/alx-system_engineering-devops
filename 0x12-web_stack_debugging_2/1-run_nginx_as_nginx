@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # debuging container
 pkill -9 apache2
-printf "server {
+printf '%s' "server {
         listen 8080 default_server;
         listen [::]:8080 default_server ipv6only=on;
 
@@ -9,7 +9,7 @@ printf "server {
         index index.html index.htm;
         
         location / {
-            try_files $uri $uri/ =404;
+            try_files \$uri \$uri/ =404;
         }
 }" > /etc/nginx/sites-available
 chown nginx:nginx  /etc/nginx/nginx.conf
