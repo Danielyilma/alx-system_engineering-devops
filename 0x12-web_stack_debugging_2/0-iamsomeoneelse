@@ -6,4 +6,4 @@ then
     echo 'usage ./0-iamsomeoneelse username'
 fi
 
-su -c 'whoami' $1
+su -c 'whoami' "$1"
