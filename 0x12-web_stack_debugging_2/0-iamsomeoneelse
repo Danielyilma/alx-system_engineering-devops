@@ -1,9 +1,3 @@
 #!/usr/bin/env bash
 # running whoami on current user loged in
-
-if [ $# -eq 0 ]
-then
-    echo 'usage ./0-iamsomeoneelse username'
-fi
-
-sudo -u"$0" whoami
+sudo -u "$0" whoami

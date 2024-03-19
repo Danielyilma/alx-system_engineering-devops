@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# debuging container
+pkill -9 apache2
+printf "server {
+        listen 8080 default_server;
+        listen [::]:8080 default_server ipv6only=on;
+
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+        
+        location / {
+            try_files $uri $uri/ =404;
+        }
+}" > /etc/nginx/sites-available
+chown nginx:nginx  /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
+sed -i '1i\user nginx;' /etc/nginx/nginx.conf
+sudo -u nginx service nginx start
