@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 # debuging container
-pkill -9 apache2
-printf '%s' "server {
-        listen 8080 default_server;
-        listen [::]:8080 default_server ipv6only=on;
+# pkill -9 apache2
+# printf '%s' "server {
+#         listen 8080 default_server;
+#         listen [::]:8080 default_server ipv6only=on;
 
-        root /usr/share/nginx/html;
-        index index.html index.htm;
+#         root /usr/share/nginx/html;
+#         index index.html index.htm;
         
-        location / {
-            try_files \$uri \$uri/ =404;
-        }
-}" > /etc/nginx/sites-available/default
-chown nginx:nginx /etc/nginx/nginx.conf
+#         location / {
+#             try_files \$uri \$uri/ =404;
+#         }
+# }" > /etc/nginx/sites-available/default
+# chown nginx:nginx /etc/nginx/nginx.conf
+# chmod 644 /etc/nginx/nginx.conf
+# sed -i '1i\user nginx;' /etc/nginx/nginx.conf
+# sudo -u nginx service nginx start
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
 chmod 644 /etc/nginx/nginx.conf
-sed -i '1i\user nginx;' /etc/nginx/nginx.conf
+pkill apache2
 sudo -u nginx service nginx start
