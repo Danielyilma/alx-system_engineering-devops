@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# creating backup file for mysql database
+current_date=$(date "+%d-%m-%Y.tar.gz")
+
+sudo mysqldump -u root -p -A > backup.sql
+tar -cvzf $current_Date ./backup.sql
