@@ -20,16 +20,22 @@ def user_info(id):
         if i['userId'] == id:
             total_tasks += 1
 
-    num_lines = 0
+    response = requests.get(users_url + str(id)).json()
+    username = response[0]['username']
+
+    flag = 0
     with open(str(id) + ".csv", 'r') as f:
         for line in f:
             if not line == '\n':
-                num_lines += 1
+                if not str(id) in line:
+                    print("User ID: Incorrect / ", end='')
+                    flag = 1
+                if not str(username) in line:
+                    print("Username: Incorrect")
+                    flag = 1
 
-    if total_tasks == num_lines:
-        print("Number of tasks in CSV: OK")
-    else:
-        print("Number of tasks in CSV: Incorrect")
+    if flag == 0:
+        print("User ID and Username: OK")
 
 
 if __name__ == "__main__":
