@@ -11,6 +11,7 @@ taskCompleted = 0
 
 
 def main():
+    '''getting data for an api'''
     response = requests.get(url)
     name = response.json().get('name', None)
 
