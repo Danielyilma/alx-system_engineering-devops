@@ -3,9 +3,9 @@
 The function retrieves and displays the completed tasks
 of a specific employee from a JSON API.
 """
+from sys import argv
 import csv
 import requests
-from sys import argv
 
 
 def main():
