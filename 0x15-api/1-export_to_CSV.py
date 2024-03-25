@@ -13,19 +13,19 @@ def main():
     url = f'https://jsonplaceholder.typicode.com/users/{argv[1]}'
     url2 = f'https://jsonplaceholder.typicode.com/users/{argv[1]}/todos'
     response = requests.get(url)
-    name = response.json().get('name', None)
+    name = response.json().get('username', None)
     csv_dict = []
     response = requests.get(url2)
 
     for task in response.json():
         dic = {}
         dic['userId'] = task.get('userId')
-        dic['name'] = name
+        dic['username'] = name
         dic['completed'] = task.get('completed')
         dic['title'] = task.get('title')
         csv_dict.append(dic)
 
-    fields = ['userId', 'name', 'completed', 'title']
+    fields = ['userId', 'username', 'completed', 'title']
     filename = argv[1] + '.csv'
 
     with open(filename, 'w') as f:
