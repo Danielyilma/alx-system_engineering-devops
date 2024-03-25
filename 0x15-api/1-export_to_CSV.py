@@ -28,8 +28,8 @@ def main():
     fields = ['userId', 'username', 'completed', 'title']
     filename = argv[1] + '.csv'
 
-    with open(filename, 'w') as f:
-        write = csv.DictWriter(f, fieldnames=fields, quoting=csv.QUOTE_ALL, newline="")
+    with open(filename, 'w', newline='') as f:
+        write = csv.DictWriter(f, fieldnames=fields, quoting=csv.QUOTE_ALL)
         write.writerows(csv_dict)
 
 
