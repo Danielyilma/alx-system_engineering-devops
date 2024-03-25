@@ -19,13 +19,13 @@ def main():
 
     for task in response.json():
         dic = {}
-        dic['id'] = task.get('id')
+        dic['userId'] = task.get('userId')
         dic['name'] = name
         dic['completed'] = task.get('completed')
         dic['title'] = task.get('title')
         csv_dict.append(dic)
 
-    fields = ['id', 'name', 'completed', 'title']
+    fields = ['userId', 'name', 'completed', 'title']
     filename = argv[1] + '.csv'
 
     with open(filename, 'w') as f:
