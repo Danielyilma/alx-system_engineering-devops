@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-'''using rest api'''
+"""
+The function retrieves and displays the completed tasks
+of a specific employee from a JSON API.
+"""
 import requests
 from sys import argv
 
