@@ -2,8 +2,11 @@
 ''' fetching subreddit data'''
 import requests
 
+
 def number_of_subscribers(subreddit):
-    response = requests.get('https://reddit.com/subreddits/search.json', params={'q':subreddit})
+    '''finding the number of subscribers for a valid subreddit'''
+    response = requests.get('https://reddit.com/subreddits/search.json',
+                            params={'q': subreddit})
 
     if response.json().get('data', {}).get('children') == []:
         return 0
