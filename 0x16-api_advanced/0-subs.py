@@ -5,12 +5,10 @@ import requests
 
 def number_of_subscribers(subreddit):
     '''finding the number of subscribers for a valid subreddit'''
-    response = requests.get('https://reddit.com/subreddits/search.json',
-                            params={'q': subreddit})
+    response = requests.get(f'https://reddit.com/r/{subreddit}/about.json',
+                            allow_redirects=False)
 
-    if response.json().get('data', {}).get('children') == []:
+    if response.status_code != 200:
         return 0
-
-    response = requests.get(f'https://reddit.com/r/{subreddit}/about.json')
 
     return response.json().get('data', {}).get('subscribers')
