@@ -23,5 +23,5 @@ server {
 
     location /static {
         proxy_pass /web_dynamic/static/;
-    }  
+    }
 }
