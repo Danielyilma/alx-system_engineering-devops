@@ -1,0 +1,4 @@
+
+GET https://reddit.com/subreddits/search.json?q="this_is_a_fake_subreddit"
+Content-Type: application/json
+
